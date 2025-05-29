@@ -1,4 +1,3 @@
-// src/components/Header.jsx
 const Header = () => {
   return (
     <header className="bg-gray-900 text-white p-4">

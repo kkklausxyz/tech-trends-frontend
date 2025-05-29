@@ -36,10 +36,6 @@ const TrendChart = ({ period, setLoading }) => {
 
   return (
     <div className="p-4">
-      <h2 className="text-xl font-bold mb-4 text-center">
-        Top Languages - {period}
-      </h2>
-
       {loadingLocal ? (
         <div className="flex justify-center items-center h-60">
           <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-500" />
