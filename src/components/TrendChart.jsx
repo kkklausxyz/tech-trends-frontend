@@ -13,6 +13,7 @@ const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 const TrendChart = ({ period, setLoading }) => {
   const [data, setData] = useState([]);
+  const [updatedAt, setUpdatedAt] = useState("");
   const [loadingLocal, setLoadingLocal] = useState(true);
 
   useEffect(() => {
@@ -22,7 +23,8 @@ const TrendChart = ({ period, setLoading }) => {
       try {
         const res = await fetch(`${API_BASE_URL}?since=${period}`);
         const json = await res.json();
-        setData(json);
+        setData(json.data || []);
+        setUpdatedAt(json.updated_at || "");
       } catch (error) {
         console.error("Error fetching trends:", error);
       } finally {
@@ -36,6 +38,18 @@ const TrendChart = ({ period, setLoading }) => {
 
   return (
     <div className="p-4">
+      {updatedAt && (
+        <p className="text-sm text-gray-500 text-center mb-4">
+          Last updated at:{" "}
+          {(() => {
+            const date = new Date(updatedAt);
+            const day = String(date.getDate()).padStart(2, "0");
+            const month = String(date.getMonth() + 1).padStart(2, "0");
+            const year = date.getFullYear();
+            return `${day}/${month}/${year}`;
+          })()}
+        </p>
+      )}
       {loadingLocal ? (
         <div className="flex justify-center items-center h-60">
           <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-500" />
