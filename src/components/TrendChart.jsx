@@ -1,52 +1,64 @@
 import { useEffect, useState } from "react";
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  Tooltip,
+  ResponsiveContainer,
+  CartesianGrid,
+} from "recharts";
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
-const TrendChart = ({ period }) => {
-  const [dataMap, setDataMap] = useState({});
-  const [loading, setLoading] = useState(false);
+const TrendChart = ({ period, setLoading }) => {
+  const [data, setData] = useState([]);
+  const [loadingLocal, setLoadingLocal] = useState(true);
 
   useEffect(() => {
-    if (dataMap[period]) return;
-
     const fetchData = async () => {
       setLoading(true);
+      setLoadingLocal(true);
       try {
         const res = await fetch(`${API_BASE_URL}?since=${period}`);
         const json = await res.json();
-        setDataMap((prev) => ({
-          ...prev,
-          [period]: json,
-        }));
+        setData(json);
       } catch (error) {
         console.error("Error fetching trends:", error);
       } finally {
         setLoading(false);
+        setLoadingLocal(false);
       }
     };
 
-    fetchData();
-  }, [period, dataMap]);
-
-  const currentData = dataMap[period] || [];
+    if (period) fetchData();
+  }, [period]);
 
   return (
-    <div>
-      <h2 className="text-xl font-bold mb-4">Trending Languages - {period}</h2>
-      {loading ? (
-        <p>Loading...</p>
+    <div className="p-4">
+      <h2 className="text-xl font-bold mb-4 text-center">
+        Top Languages - {period}
+      </h2>
+
+      {loadingLocal ? (
+        <div className="flex justify-center items-center h-60">
+          <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-500" />
+        </div>
       ) : (
-        <ul className="space-y-2">
-          {currentData.map((item) => (
-            <li
-              key={item.language}
-              className="flex justify-between border-b py-1"
-            >
-              <span>{item.language}</span>
-              <span>{item.count}</span>
-            </li>
-          ))}
-        </ul>
+        <ResponsiveContainer width="100%" height={400}>
+          <BarChart
+            key={period}
+            data={data}
+            layout="vertical"
+            margin={{ top: 20, right: 30, left: 80, bottom: 10 }}
+          >
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis type="number" />
+            <YAxis dataKey="language" type="category" />
+            <Tooltip />
+            <Bar dataKey="count" fill="#4f46e5" isAnimationActive />
+          </BarChart>
+        </ResponsiveContainer>
       )}
     </div>
   );
