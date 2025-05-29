@@ -38,6 +38,9 @@ const TrendChart = ({ period, setLoading }) => {
 
   return (
     <div className="p-4">
+      <p className="text-sm text-gray-500 text-center mb-4">
+        Data sourced from GitHub Trending
+      </p>
       {updatedAt && (
         <p className="text-sm text-gray-500 text-center mb-4">
           Last updated at:{" "}
