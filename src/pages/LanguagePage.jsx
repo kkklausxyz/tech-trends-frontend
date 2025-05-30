@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import TrendChart from "../components/TrendChart";
+import PieChart from "../components/PieChart";
 import axios from "axios";
 
 const periods = ["daily", "weekly", "monthly"];
@@ -54,7 +55,7 @@ const LanguagePage = () => {
         ))}
       </div>
 
-      <TrendChart
+      <PieChart
         data={data}
         updatedAt={updatedAt}
         period={period}
@@ -62,7 +63,8 @@ const LanguagePage = () => {
       />
 
       <p className="text-xs text-gray-500 text-center mt-4">
-        * Data from GitHub Trending, showing language frequency.
+        * Data from GitHub Trending, showing the frequency of languages used in
+        trending repositories.
       </p>
     </div>
   );
