@@ -15,7 +15,7 @@ const Header = () => {
         {/* Desktop Nav */}
         <nav className="hidden md:flex space-x-6">
           <Link to="/" className="hover:underline">
-            Language Frequency
+            GitHub Top Languages
           </Link>
           <Link to="/popular" className="hover:underline">
             GitHub Top Repos
@@ -43,13 +43,13 @@ const Header = () => {
       >
         <div className="flex flex-col px-4 pt-2 space-y-2">
           <Link to="/" className="hover:underline" onClick={toggleMenu}>
-            Languages
+            GitHub Top Languages
           </Link>
           <Link to="/popular" className="hover:underline" onClick={toggleMenu}>
-            Top Repos
+            GitHub Top Repos
           </Link>
           <Link to="/keywords" className="hover:underline" onClick={toggleMenu}>
-            Keywords
+            GitHub Keywords
           </Link>
         </div>
       </div>

@@ -34,7 +34,7 @@ const LanguagePage = () => {
   return (
     <div className="p-4">
       <h2 className="text-xl font-bold mb-4 text-center">
-        GitHub Trending: Language Frequency
+        GitHub Top Languages
       </h2>
 
       <div className="flex justify-center space-x-3 mb-6">
