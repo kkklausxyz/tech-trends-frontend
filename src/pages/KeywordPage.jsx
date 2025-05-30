@@ -28,7 +28,7 @@ const KeywordPage = () => {
 
   return (
     <div className="p-4">
-      <h2 className="text-xl font-bold text-center mb-4">Keyword Cloud</h2>
+      <h2 className="text-xl font-bold text-center mb-4">GitHub Keywords</h2>
 
       <div className="flex justify-center space-x-2 mb-6">
         {periods.map((p) => (

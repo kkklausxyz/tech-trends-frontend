@@ -30,9 +30,7 @@ const PopularPage = () => {
 
   return (
     <div className="p-4">
-      <h2 className="text-xl font-bold mb-4 text-center">
-        Top Starred Repositories
-      </h2>
+      <h2 className="text-xl font-bold mb-4 text-center">GitHub Top Repos</h2>
 
       <div className="flex justify-center space-x-4 mb-6">
         {periods.map((p) => (

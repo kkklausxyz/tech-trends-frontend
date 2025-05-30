@@ -10,18 +10,18 @@ const Header = () => {
   return (
     <header className="bg-gray-900 text-white p-4">
       <div className="max-w-6xl mx-auto flex justify-between items-center">
-        <h1 className="text-xl font-bold">Tech Trends Explorer</h1>
+        <h1 className="text-xl font-bold">Tech Trends on GitHub</h1>
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex space-x-6">
           <Link to="/" className="hover:underline">
-            Languages
+            Language Frequency
           </Link>
           <Link to="/popular" className="hover:underline">
-            Top Repos
+            GitHub Top Repos
           </Link>
           <Link to="/keywords" className="hover:underline">
-            Keywords
+            GitHub Keywords
           </Link>
         </nav>
 
