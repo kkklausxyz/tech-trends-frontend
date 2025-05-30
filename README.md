@@ -15,11 +15,14 @@
 
 ## 📦 Features
 
-- Toggle between Daily / Weekly / Monthly trends
-- Animated horizontal bar chart
-- Loading indicator on data change
-- Display of last updated time
-- Responsive layout and modern UI
+- Language Trends: Animated horizontal bar chart showing top programming languages on GitHub Trending
+- Keyword Cloud: Colorful word cloud generated from trending repo descriptions, highlighting popular tools and technologies
+- Top Repositories: List of most starred repositories with language, description, and star count
+- Toggle Time Periods: Switch between Daily / Weekly / Monthly views
+- Loading Indicators: Smooth spinner animations during data fetching
+- Responsive Design: Optimized layout for mobile and desktop
+- Interactive UI: Hover animations and polished transitions
+- Real-Time Data: All data is fetched from a live backend connected to GitHub Trending
 
 ## 📡 API Integration
 
@@ -30,7 +33,7 @@ The frontend fetches data from a Flask-based API hosted on Render, which retriev
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/tech-trends-frontend.git
+git clone https://github.com/kkklausxyz/tech-trends-frontend.git
 cd tech-trends-frontend
 ```
 
