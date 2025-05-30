@@ -6,7 +6,6 @@ const LanguagePage = () => {
 
   return (
     <div>
-      <h2 className="text-xl font-bold mb-4">Language Distribution</h2>
       <TrendChart period="daily" setLoading={setLoading} />
     </div>
   );
