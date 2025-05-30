@@ -21,7 +21,9 @@ const TrendChart = ({ period, setLoading }) => {
       setLoading(true);
       setLoadingLocal(true);
       try {
-        const res = await fetch(`${API_BASE_URL}?since=${period}`);
+        const res = await fetch(
+          `${API_BASE_URL}/language-distribution?since=${period}`
+        );
         const json = await res.json();
         setData(json.data || []);
         setUpdatedAt(json.updated_at || "");
